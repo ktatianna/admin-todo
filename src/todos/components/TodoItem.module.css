@@ -1,0 +1,7 @@
+.todoDone {
+  @apply line-through bg-white rounded-lg shadow-sm p-5 border flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0;
+}
+
+.todoPending {
+  @apply bg-white rounded-lg shadow-sm p-5 border flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0;
+}

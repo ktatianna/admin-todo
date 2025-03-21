@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Admin Todos
 
-## Getting Started
+This project is a task management application built with Next.js.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Development
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Steps to set up the app in development:k
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Start the database:**
+   ```bash
+   docker compose up -d
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Create a copy of the `.env.template` file and rename it to `.env`.
 
-## Learn More
+3. Replace the environment variables in the `.env` file.
 
-To learn more about Next.js, take a look at the following resources:
+4. Install the project dependencies:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+6. Run the following Prisma commands:
+   ```bash
+   npx prisma migrate dev
+   npx prisma generate
+   ```
 
-## Deploy on Vercel
+7. Seed the local database by visiting the following URL:
+   [http://localhost:3000/api/seed](http://localhost:3000/api/seed)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Prisma Commands
+
+- Initialize Prisma:
+  ```bash
+  npx prisma init
+  ```
+
+- Apply migrations:
+  ```bash
+  npx prisma migrate dev
+  ```
+
+- Generate the Prisma client:
+  ```bash
+  npx prisma generate
+  ```
+
+---
+
+## Production
+
+(Add specific instructions for the production environment here.)
+
+---
+
+## Staging
+
+(Add specific instructions for the staging environment here.)
