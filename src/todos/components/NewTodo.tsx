@@ -1,27 +1,17 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
-
-import * as todosApi from "@/todos/helpers/todos";
+import { addTodo, deleteCompleted } from "../actions/todo-actions";
 
 export const NewTodo = () => {
-  const router = useRouter();
-
   const [description, setDescription] = useState("");
 
   const onsubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (description.trim() === "") return;
 
-    todosApi.createTodo(description);
+    addTodo(description)
     setDescription("");
-    router.refresh();
-  };
-
-  const deleteCompleted = () => {
-    todosApi.deleteCompletedTodos();
-    router.refresh();
   };
 
   return (
